@@ -1,0 +1,45 @@
+<div class="map-container">
+  <agm-map class="map" [latitude]="lat"
+           [longitude]="lon"
+           [mapDraggable]="true"
+           [streetViewControl]="false"
+           [zoom]="12">
+    <agm-marker *ngFor="let p of this.service.projects;"
+                [latitude]="p.xCordinate"
+                [longitude]="p.yCordinate"
+                [markerDraggable]="false"
+                [iconUrl]="markerIconURL">
+
+      <agm-info-window>
+        <div class="window-info">
+          <h2>{{p.name}}</h2>
+          <br/>
+          <button id="projectBtn" class="btn-info btn btn-gm" (click)="projectButton(p.id);" routerLink="/project-create">Ga naar
+            project
+          </button>
+        </div>
+      </agm-info-window>
+
+    </agm-marker>
+  </agm-map>
+</div>
+<button class="btn btn-success ml-auto" routerLink="/project-create">+ Project aanmaken</button>
+<div class="filters grid">
+  <h2 class="grid-full-colomn">Filter opties</h2>
+  <label for="startdate">Van:</label>
+  <input type="date" id="startdate" [(ngModel)]="fromDate">
+  <br/>
+  <label for="enddate">Tot:</label>
+  <input type="date" id="enddate" [(ngModel)]="toDate">
+  <br/>
+  <label for="typeproject">Type project:</label>
+  <select id="typeproject" [(ngModel)]="selectedType" [ngModelOptions]="{standalone: true}">
+    <option selected value="park">Park</option>
+    <option value="tuin">Tuin</option>
+    <option value="recreatie">Recreatie</option>
+    <option value="speelplaats">Speelplaats</option>
+    <option value="sportplaats">Sportplaats</option>
+    <option value="overig">Overig</option>
+  </select>
+  <button class="btn btn-block btn-info grid-full-colomn" (click)="searchButton()">zoeken</button>
+</div>

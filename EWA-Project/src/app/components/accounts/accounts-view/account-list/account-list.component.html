@@ -1,0 +1,14 @@
+<div class="accountsBox">
+  <div class="account-box" *ngFor="let account of this.accountService.accounts">
+    <div class="accountInfo">
+      <p>{{account.name}}</p>
+      <p>{{account.district}}</p>
+      <p> {{account.department}}</p>
+    </div>
+    <div class="accountEdit">
+      <a (click)="accountService.setSelectedAccountId(account.id)" routerLink="/account-create"><img class="editImg"
+                                                                                                     src="../assets/edit.svg"
+                                                                                                     alt="edit"></a>
+    </div>
+  </div>
+</div>

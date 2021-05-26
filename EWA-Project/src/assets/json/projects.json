@@ -1,0 +1,27 @@
+[
+  {
+    "ID": "test1",
+    "title": "Oosterpark",
+    "lat": 52.359927,
+    "long": 4.919900,
+    "results": {
+      "nature": 300,
+      "Excercise": 400,
+      "Gardening": 200,
+      "Playpark": 150
+    },
+    "type": "lipsum"
+  },
+  {
+    "ID": "test2",
+    "title": "Beatrixpark",
+    "lat": 52.342215,
+    "long": 4.881738,
+    "results": {
+      "nature": 100,
+      "Excercise": 300,
+      "Gardening": 500,
+      "Playpark": 250
+    }
+  }
+]

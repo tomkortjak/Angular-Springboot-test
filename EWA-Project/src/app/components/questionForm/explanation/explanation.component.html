@@ -1,0 +1,26 @@
+<div class="green-background">
+  <div class="screen">
+    <div class="titles">
+      <h1>{{service.foundProject.name}}</h1>
+    </div>
+    <div class="box-map-img">
+    <div class="map-container">
+      <agm-map class="map" [latitude]="lat"
+               [longitude]="lon"
+               [mapDraggable]="true"
+               [streetViewControl]="false"
+               [zoom]="14">
+        <agm-circle [radius]="500" [latitude]="lat" [longitude]="lon" [fillColor]="'red'"
+                    [draggable]="false"></agm-circle>
+      </agm-map>
+    </div>
+    </div>
+    <div class="description">
+      <p>{{service.foundProject.description}}</p>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-success" (click)="startButton()">Start</button>
+    </div>
+  </div>
+</div>
+

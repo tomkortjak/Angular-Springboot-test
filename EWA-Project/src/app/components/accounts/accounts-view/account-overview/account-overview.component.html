@@ -1,0 +1,16 @@
+<app-base-screen></app-base-screen>
+<div class="content">
+  <div *ngIf="executedOperation" class="alert alert-success">Successvol {{executedName}}</div>
+  <div class="row pr-2">
+  <h1>Accounts</h1>
+  </div>
+  <div class="row">
+    <div>
+      <app-account-list></app-account-list>
+    </div>
+    <div>
+      <button class="btn btn-success ml-auto" routerLink="/account-create"> + Account aanmaken</button>
+      <app-account-list-filter></app-account-list-filter>
+    </div>
+    </div>
+</div>

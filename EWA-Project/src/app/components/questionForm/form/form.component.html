@@ -1,0 +1,62 @@
+<div class="forum">
+  <div class="background">
+    <div class="left-image">
+      <div class="topic">
+        <h3 id="titleLeft">{{currentQuest._leftCategory.name}}</h3>
+        <button class="information-bubble" data-toggle="collapse" data-target="#info1" (click)="quest('left')">?
+        </button>
+        <div class="collapse" id="info1">
+          <p>{{currentQuest._leftCategory.description}} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="right-image">
+  <div class="topic">
+    <h3 id="titleRight">{{currentQuest._rightCategory.name}}</h3>
+    <button class="information-bubble" data-toggle="collapse" data-target="#info2" (click)="quest('right')">?</button>
+    <div class="collapse" id="info2">
+      <p>{{currentQuest._rightCategory.description}}</p>
+    </div>
+  </div>
+</div>
+<div class="form">
+  <div class="banner">
+    <h2>What do you value the most?</h2>
+<!--    <div class="language">-->
+<!--      <a href="#"><img alt="dutch language" class="languageImage"-->
+<!--                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/255px-Flag_of_the_Netherlands.svg.png"/></a>-->
+<!--      <a href="#"><img alt="english language" class="languageImage"-->
+<!--                       src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png"/></a>-->
+<!--    </div>-->
+  </div>
+  <div class="button-group">
+    <form>
+      <input id="male1" type="radio" name="gender" value="hosam">
+      <input id="male2" type="radio" name="gender" value="safak">
+      <input id="male3" type="radio" name="gender" value="tom" checked>
+      <input id="male4" type="radio" name="gender" value="wilco">
+      <input id="male5" type="radio" name="gender" value="yan">
+    </form>
+  </div>
+  <div class="label-group">
+    <p>Strong preference</p>
+    <p>Slight preference</p>
+    <p>Neutral</p>
+    <p>Slight preference</p>
+    <p>Strong preference</p>
+  </div>
+  <div class="navigation">
+    <div class="navigateBtn navLeft" (click)="previousQuestion()">
+      <i class="fa fa-chevron-left"></i>
+    </div>
+    <div class="navigateBtn navRight" (click)="nextQuestion()">
+      <i class="fa fa-chevron-right"></i>
+    </div>
+  </div>
+  <div class="question-counter">
+    <h3>{{currentQuest._id}}/10</h3>
+  </div>
+</div>
+

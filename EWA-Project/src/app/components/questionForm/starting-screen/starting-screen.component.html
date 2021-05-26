@@ -1,0 +1,19 @@
+<div class="green-background">
+  <div class="image-logo">
+    <img src="../../../assets/Images/ggd-logo.png">
+  </div>
+  <div class="screen">
+    <div class="titles">
+      <h1>Amsterdam</h1>
+      <h1>Green area survey</h1>
+    </div>
+    <div class="code-input">
+      <h3>Enter your code:</h3>
+      <form #f="ngForm">
+        <div *ngIf=" checkCode " class=" alert alert-danger">Invalid code</div>
+        <input [ngClass]="{'yikes':checkCode}" type="text" name="code" [(ngModel)]="codeValue"  (focus)="focus()" pattern="^[0-9]{3}$" required>
+      </form>
+    </div>
+    <button class="btn btn-success" (click)="nextButton()">Next</button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="topBar">
+  <ul>
+    <li><a routerLink="/home">Home</a></li>
+    <li ><a routerLink="/accounts" *ngIf="isAdmin">Accounts</a></li>
+    <li><a routerLink="/projects">Projecten</a></li>
+  </ul>
+  <div class="currentUser">
+    <p>{{name}}</p>
+    <img class="userImg" src="assets/Images/anonime.jpg" alt="logo">
+    <div class="dropdown">
+      <a routerLink="/profile">Mijn profiel</a>
+      <a routerLink="/admin" class="logOut" (click)="logOut()">Log out</a>
+    </div>
+  </div>
+</div>
+

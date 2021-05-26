@@ -1,0 +1,19 @@
+
+<div class="green-background">
+  <div class="image-logo">
+    <img src="../../../assets/Images/ggd-logo.png">
+  </div>
+  <div class="flex center-items full-height loginform">
+    <form #login="ngForm" >
+      <h1>Inloggen</h1>
+      <div *ngIf=" alertstatus " class=" alert alert-danger">{{status}}</div>
+      <h3>Email</h3>
+      <input [ngClass]="{'yikes':alertstatus}" [(ngModel)]="ggdID" name="name" (focus)="focus()" />
+      <h3>Wachtwoord</h3>
+      <input [ngClass]="{'yikes':alertstatus}" type="password" [(ngModel)]="ggdpassword" name="ggdpassword" (focus)="focus()"/>
+      <br/><br/>
+      <button (click)="loginButton() " class="btn btn-block btn-success">login</button>
+
+    </form>
+  </div>
+</div>

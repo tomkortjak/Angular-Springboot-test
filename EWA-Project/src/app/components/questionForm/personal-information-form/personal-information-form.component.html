@@ -1,0 +1,35 @@
+<div class="green-background">
+  <div class="screen">
+    <div class="blackbox">
+      <h1>Personal information</h1>
+      <form #editForm="ngForm" (keydown.enter)="$event.preventDefault()">
+        <div class="container">
+          <p style="font-family: Arial; font-size: initial; margin-bottom: 30px">(It is optional to fill in your details, you may leave it blank)</p>
+          <div class="grid-item">
+            <p>Date of birth:</p>
+            <input type="date" name="dateOfBirth" [(ngModel)]="dateOfBirth" (focus)="focus()">
+          </div>
+          <div class="grid-item">
+            <p>Gender:</p>
+            <select class="custom-select" [(ngModel)]="selectedGender" name="gender" (focus)="focus()">
+              <option disabled>Select your gender</option>
+              <option *ngFor="let g of gender" [ngValue]="g">{{g}}</option>
+            </select>
+          </div>
+          <div class="grid-item">
+            <p>Zipcode:</p>
+            <input type="text" name="postcode" [(ngModel)]="zipcode" pattern="^[0-9]{4}[A-Z | a-z]{2}$" (focus)="focus()">
+          </div>
+          <div class="grid-item">
+            <p>E-mail:</p>
+            <input type="email" name="emailaddress" [(ngModel)]="email" email (focus)="focus()">
+          </div>
+          <div class="grid-item">
+          </div>
+        </div>
+      </form>
+      <div *ngIf=" checkForm " class=" alert alert-danger">Some fields are invalid</div>
+      <button class="btn btn-success" (click)="nextButton()">Next</button>
+    </div>
+  </div>
+</div>

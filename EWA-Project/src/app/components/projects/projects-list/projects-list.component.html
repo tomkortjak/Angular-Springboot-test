@@ -1,0 +1,42 @@
+<div class="row pr-2">
+  <h1>Projecten</h1>
+  <button class="btn btn-success ml-auto" routerLink="/project-create">+ Project aanmaken</button>
+</div>
+<div class="row">
+  <div class="projectsBox">
+    <div class="project-box" *ngFor="let project of this.service.projects">
+      <div class="projectInfo">
+        <p>{{ project.name }}</p>
+        <p>{{ project.location }} - Code: {{ project.code}}</p>
+        <p>{{ project.startDate.toString().substring(0, 10) }}
+          / {{ project.endDate.toString().substring(0, 10) }}</p>
+      </div>
+      <div class="projectEdit">
+        <a routerLink="/project-create" (click)="updateCurrentProject(project.id)"><img class="editImg"
+                                                                                        src="../assets/edit.svg"
+                                                                                        alt="edit"></a>
+      </div>
+    </div>
+  </div>
+  <div class="filters">
+    <div class="filterInputs">
+      <div class="filterBox">
+        <p>Naam</p>
+        <input type="text" placeholder="Naam" [minLength]="3" [(ngModel)]="title">
+      </div>
+      <div class="filterBox">
+        <p>Buurt</p>
+        <input type="text" placeholder="Buurt" [(ngModel)]="hood">
+      </div>
+      <div class="filterBox">
+        <p>Startdatum</p>
+        <input type="date" [(ngModel)]="start">
+      </div>
+      <div class="filterBox">
+        <p>Einddatum</p>
+        <input type="date" [(ngModel)]="end">
+      </div>
+      <input (click)="search()" type="submit" value="Zoeken">
+    </div>
+  </div>
+</div>

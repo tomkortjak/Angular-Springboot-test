@@ -1,0 +1,39 @@
+<div class="green-background">
+  <div class="screen">
+    <div class="alert alert-success">You have succesfully completed the survey</div>
+    <div class="row charts w-100 ">
+        <div class="col-md-6 text-center">
+          <div class="titles h-25">
+            <h1>Your results</h1>
+          </div>
+          <div>
+            <canvas class="graph" baseChart
+                    [data]="userChartData"
+                    [labels]="userChartLabels"
+                    [legend]="userChartLegend"
+                    [chartType]="polarChartType"
+            >
+            </canvas>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="titles h-25">
+            <h1>Neighbourhood results</h1>
+          </div>
+          <div>
+            <canvas class="graph" baseChart
+                    [data]="projectChartData"
+                    [labels]="projectChartLabels"
+                    [legend]="projectChartLegend"
+                    [chartType]="polarChartType"
+            >
+            </canvas>
+          </div>
+        </div>
+    </div>
+    <div class="description">
+      <p>These are the final results. At the left side, you can see your results from the questionaire. At the right side you can see the results of the people around you.</p>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,39 @@
+h1 {
+  color: white;
+  font-weight: bolder;
+  font-family: 'Raleway', sans-serif;
+  text-shadow: 1px 1px 5px #444;
+}
+
+.content {
+  width: 100%;
+    float: right;
+  padding: 50px;
+  background: #EAE9E9;
+  height: 100%;
+}
+.btn {
+  display: flex;
+  right: 0;
+  color: white;
+  font-weight: bolder;
+  margin: 15px;
+  border-radius: 25px;
+  border: none;
+}
+
+.btn-success {
+  background: #00E778;
+  box-shadow: 4px 3px 0px #00AA58;
+}
+.row {
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+.alert{
+  font-size: 1.5em;
+  font-weight: bolder;
+  font-style: italic;
+  font-family: 'Raleway', sans-serif;
+}

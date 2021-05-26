@@ -1,0 +1,25 @@
+<div class="green-background">
+  <div class="screen">
+    <div class="titles">
+      <h1>How to fill in the form</h1>
+    </div>
+    <div class="how-to-box">
+      <button class="btn btn-success btn-primary slide" (click)="plusDivs(-1)">&#10094;</button>
+      <div class="images">
+        <div class="question-counter">
+          <h3>{{count}}/3</h3>
+        </div>
+        <img class="gif" src="../../../../assets/Images/step1.PNG">
+        <img class="gif" src="../../../../assets/Images/step2.PNG">
+        <img class="gif" src="../../../../assets/Images/step3.PNG">
+        <p>Step {{count}}: {{part[slideIndex]}}</p>
+      </div>
+      <button class="btn btn-success btn-primary slide" (click)="plusDivs(+1)">&#10095;</button>
+    </div>
+
+    <div class="buttons">
+      <button class="btn btn-success back" (click)="backButton()">Next</button>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,86 @@
+<app-base-screen></app-base-screen>
+<div class="content">
+  <h1>Account</h1>
+  <div class="container accountCreateBox">
+    <div class="row">
+      <ng-form class="col-8">
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Voornaam:</label>
+            <input id="nameInput" type="text" class="form-control" placeholder="Voornaam" *ngIf="accountService.selectedAccount"
+                   [(ngModel)]="accountService.selectedAccount.name" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col">
+            <label>Achternaam:</label>
+            <input type="text" class="form-control" placeholder="Achternaam" *ngIf="accountService.selectedAccount"
+                   [(ngModel)]="accountService.selectedAccount.lastName" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col">
+            <label>Wachtwoord:</label>
+            <input type="password" class="form-control" placeholder="Wachtwoord" *ngIf="accountService.selectedAccount"
+                   [(ngModel)]="accountService.selectedAccount.password" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Email: </label>
+            <input type="text" class="form-control" placeholder="naam@ggd.amsterdam.nl" *ngIf="accountService.selectedAccount"
+                   [(ngModel)]="accountService.selectedAccount.email" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col">
+            <label>Afbeelding:</label>
+            <label class="afbeeldingLabel"> Upload afbeelding ⇲
+              <input type="file" class="form-control">
+            </label>
+          </div>
+          <div class="form-group col">
+            <label>Afdeling:</label>
+            <input type="text" class="form-control" placeholder="hr-manager" *ngIf="accountService.selectedAccount"
+                   [(ngModel)]="accountService.selectedAccount.department" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Startdatum:</label>
+            <input type="text" class="form-control" placeholder="jjjj-mm-dd" *ngIf="accountService.selectedAccount"
+                   [(ngModel)]="accountService.selectedAccount.startDate" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col">
+            <label>Stadsdeel:</label>
+            <input type="text" list="stadsdelen" class="form-control" placeholder="Centrum" *ngIf="accountService.selectedAccount"
+                   [(ngModel)]="accountService.selectedAccount.district" [ngModelOptions]="{standalone: true}">
+            <datalist id="stadsdelen">
+              <option value="Centrum">
+              <option value="Nieuw-West">
+              <option value="Noord">
+              <option value="Oost">
+              <option value="West">
+              <option value="Zuid">
+              <option value="Zuidoost">
+            </datalist>
+          </div>
+          <div class="form-group col">
+            <label>Telefoonnummer:</label>
+            <input type="text" class="form-control" placeholder="+06" *ngIf="accountService.selectedAccount"
+                   [(ngModel)]="accountService.selectedAccount.phoneNumber" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="buttons form-row justify-content-between">
+          <button id="saveButton" (click)="executeOperation('opslaan?')" type="button" class="btn btn-success col-2" >Opslaan</button>
+          <button id="resetButton" (click)="executeOperation('resetten?')" type="button" class="btn btn-warning col-2">Reset</button>
+          <button id="deleteButton" (click)="executeOperation('verwijderen?')" type="button" class="btn btn-danger col-2 ml-auto">Verwijder</button>
+        </div>
+      </ng-form>
+      <div class="col-4">
+        <img class="profielFoto" src="assets\Images\anonime.jpg">
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="doOperation" class="confirm-back" >
+  <div class="confirm-box">
+    <h3>Weet u zeker dat u wilt {{operation}}</h3>
+    <button id="confirmButton" type="button" class="btn btn-success " (click)="confirmOperation(operation)">Bevestigen</button>
+    <button type="button" class="btn btn-danger " (click)="cancelOperation()">Annuleren</button>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="filters">
+  <div class="filterInputs">
+    <div class="filterBox">
+      <p>Naam</p>
+      <input type="text" placeholder="Naam" [(ngModel)]="naam">
+    </div>
+    <div class="filterBox">
+      <p>Email</p>
+      <input type="text" placeholder="Achternaam@GGD.nl" [(ngModel)]="email">
+    </div>
+  </div>
+  <div class="filterChecks">
+    <p>Stadsdeel</p>
+    <div class="radioRow">
+      <input type="radio" name="area" value="Centrum" [(ngModel)]="stadsdeel">
+      <label>Centrum</label>
+    </div>
+    <div class="radioRow">
+      <input id="nieuw-westKnop" type="radio" name="area" value="Nieuw-West" [(ngModel)]="stadsdeel">
+      <label>Nieuw-West</label>
+    </div>
+    <div class="radioRow">
+      <input id="noordKnop" type="radio" name="area" value="Noord" [(ngModel)]="stadsdeel">
+      <label>Noord</label>
+    </div>
+    <div class="radioRow">
+      <input type="radio" name="area" value="Oost" [(ngModel)]="stadsdeel">
+      <label>Oost</label>
+    </div>
+    <div class="radioRow">
+      <input type="radio" name="area" value="West" [(ngModel)]="stadsdeel">
+      <label>West</label>
+    </div>
+    <div class="radioRow">
+      <input type="radio" name="area" value="Zuid" [(ngModel)]="stadsdeel">
+      <label>Zuid</label>
+    </div>
+    <div class="radioRow">
+      <input type="radio" name="area" value="Zuidoost" [(ngModel)]="stadsdeel">
+      <label>Zuidoost</label>
+    </div>
+  </div>
+  <input id="filterSearch" (click)="search()" type="submit" value="Zoeken" >
+</div>
+

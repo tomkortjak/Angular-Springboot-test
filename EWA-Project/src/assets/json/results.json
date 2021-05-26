@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "exercise": 20,
+    "gardening": 20,
+    "expierincingNature": 20,
+    "meetingPeople": 20,
+    "restAndRelaxation": 20,
+    "zipcode": "111QW",
+    "sex": "M",
+    "dadteOfBirth": null,
+    "email": "hallo@live.nl"
+  }
+]

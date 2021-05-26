@@ -1,0 +1,129 @@
+<app-base-screen></app-base-screen>
+<div class="content">
+  <div class="bar">
+    <h1>Project</h1>
+    <button (click)="downloadStats()" type="button" class="btn download-button btn-primary">Download statistieken
+    </button>
+  </div>
+  <div class="create-project-box">
+    <form #myForm="ngForm">
+      <div class="row">
+        <div class="col-sm-4">
+          <input class="input-title" type="text" placeholder="Project Titel" *ngIf="service.currentProject"
+                 [(ngModel)]="service.currentProject.name" [ngModelOptions]="{standalone: true}">
+          <label for="desc">Beschrijving:</label>
+          <textarea id="desc" type="text" placeholder="Project omschrijving"
+                    *ngIf="service.currentProject"
+                    [(ngModel)]="service.currentProject.description" [ngModelOptions]="{standalone: true}"></textarea>
+          <div class="row">
+            <div class="col-sm-12">
+              <label for="x-as">X-as:</label>
+              <input id="x-as" type="text" placeholder="52.151515" *ngIf="service.currentProject"
+                     [(ngModel)]="service.currentProject.xCordinate" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <label for="y-as">Y-as:</label>
+              <input id="y-as" type="text" placeholder="49.56565656" *ngIf="service.currentProject"
+                     [(ngModel)]="service.currentProject.yCordinate" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="startDate">Startdatum:</label>
+              <input id="startDate" type="date" *ngIf="service.currentProject"
+                     [ngModel]="service.currentProject.startDate | date:'yyyy-MM-dd'"
+                     (ngModelChange)="service.currentProject.startDate = $event" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="col-sm-6">
+              <label for="endDate">Einddatum:</label>
+              <input id="endDate" type="date" *ngIf="service.currentProject"
+                     [ngModel]="service.currentProject.endDate | date:'yyyy-MM-dd'"
+                     (ngModelChange)="service.currentProject.endDate = $event" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="status">Status:</label>
+              <input list="statuses" id="status" type="text" placeholder="In progress"
+                     *ngIf="service.currentProject"
+                     [(ngModel)]="service.currentProject.status" [ngModelOptions]="{standalone: true}">
+              <datalist id="statuses">
+                <option value="In progress">
+                <option value="Done">
+                <option value="Almost done">
+                <option value="Re-opened">
+                <option value="Planned">
+              </datalist>
+            </div>
+            <div class="col-sm-6">
+              <label for="area">Regio:</label>
+              <input id="area" type="text" placeholder="Amsterdam Zuid" *ngIf="service.currentProject"
+                     [(ngModel)]="service.currentProject.location" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="buurt">Buurt:</label>
+              <input id="buurt" type="text" placeholder="Indische Buurt"
+                     *ngIf="service.currentProject"
+                     [(ngModel)]="service.currentProject.neighbourhood" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="col-sm-6">
+              <label for="type">Project type:</label>
+              <select id="type" *ngIf="service.currentProject"
+                      [(ngModel)]="service.currentProject.type" [ngModelOptions]="{standalone: true}">
+                <option value="Park">Park</option>
+                <option value="Tuin">Tuin</option>
+                <option value="Recreatie">Recreatie</option>
+                <option value="Speelplaats">Speelplaats</option>
+                <option value="Sportplaats">Sportplaats</option>
+                <option value="Overig">Overig</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <label for="img">Afbeelding:</label>
+              <input id="img" type="file" accept="image/*">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <img class="create-project-img" src="../../../assets/Images/gardening.jpeg" alt="image">
+        </div>
+      </div>
+    </form>
+
+    <div class="google-maps">
+      <agm-map id="map" #map class="map" [latitude]="service.currentProject?.xCordinate"
+               [longitude]="service.currentProject?.yCordinate"
+               [mapDraggable]="true"
+               [streetViewControl]="false"
+               [zoom]="12">
+        <agm-marker [latitude]="this.service.currentProject?.xCordinate"
+                    [longitude]="this.service.currentProject?.yCordinate"
+                    [markerDraggable]="true"
+                    (dragEnd)="markerDragEnd($event)"
+                    [iconUrl]="markerIconURL"></agm-marker>
+      </agm-map>
+    </div>
+    <div class="button-bar">
+      <button (click)="saveCurrentProject('opslaan?')" type="button" class="btn btn-success">Opslaan</button>
+      <button (click)="resetProject('resetten?')" type="button" class="btn btn-warning">Reset</button>
+      <button (click)="deleteCurrentProject(service.currentProjectId, 'verwijderen?');" type="button"
+              class="float-right btn btn-danger">Verwijder
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="doOperation" class="confirm-back">
+  <div class="confirm-box">
+    <h3>Weet u zeker dat u wilt {{operation}}</h3>
+    <button type="button" class="btn btn-success" (click)="confirmOperation(operation, service.currentProjectId)">Bevestigen</button>
+    <button type="button" class="btn btn-danger" (click)="cancelOperation()">Annuleren</button>
+  </div>
+</div>
